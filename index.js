@@ -70,9 +70,9 @@ async function question1(){
     return handleAnswer(answer.question_1 === 'Dec 4th 1995')
 }
 
-async function question2(){
+async function question3(){
     const answer = await inquirer.prompt({
-        name: 'question_2',
+        name: 'question_3',
         type: 'list',
         message: 'Guess which programming lang is my favourite? \n',
         choices: [
@@ -83,8 +83,32 @@ async function question2(){
         ]
     })
 
-    return handleAnswer(answer.question_2 === 'Javascript')
+    return handleAnswer(answer.question_3 === 'Javascript')
 }
+
+
+
+async function question2(){
+    const answer = await inquirer.prompt({
+        name: 'question_2',
+        type: 'list',
+        message: 'Which programming language is statically typed? \n',
+        choices: [
+            'Javascript',
+            'PHP',
+            'Dart',
+            'Python'
+        ]
+    })
+
+    return handleAnswer(answer.question_2 === 'Dart')
+}
+
+
+
+
+
+
 
 async function handleAnswer(isCorrect){
     const spinner = createSpinner('Checking answer...').start()
@@ -120,6 +144,7 @@ await Welcome()
 await askName()
 await question1()
 await question2()
+await question3()
 await winner()
 
 
